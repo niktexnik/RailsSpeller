@@ -15,16 +15,16 @@ class CheckText
     end
 
     def parse_response(response)
-      return 'Something went wrong' if !response.code == 200
+      return 'Что-то пошло не так' if !response.code == 200
 
       body = JSON.parse(response.body)
       if body.empty?
-        'All right'
+        'Какой Вы молодец! Все написно верно.'
       else
-        errors = ''
+        errors = []
         maybe = []
         body.each do |check_result|
-          errors += check_result['word']
+          errors << check_result['word']
           maybe << check_result['s']
         end
         "Ошибки в слове #{errors}, возможно вы имели ввиду: #{maybe}"
