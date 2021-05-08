@@ -1,0 +1,2 @@
+module CheckTextsHelper
+end
