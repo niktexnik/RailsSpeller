@@ -1,14 +1,16 @@
-<h1>Введите текст и нажмите "Проверить"</h1>
+<h2>-------------------------------------------------Spell checker------------------------------------------------------------</h2>
 <%= form_with url: check_texts_check_text_path do |form| %>
 <div>
-    <%= form.label 'Введите текст:'%><br>
-    <%= form.text_area :text %>
+    <%= form.label 'Введите текст:', {:class => 'form-check-label'} %><br>
+    <%= form.text_area :text, {:class => 'form-control'}%><br>
 </div>
 <div>
-    <%= form.submit 'Проверить'%>
-</div>
+    <%= form.submit 'Проверить', {:class => 'btn btn-lg btn-primary col-md-12'}%> 
+</div><br>
 <div>
-    <h1>Результат проверки:</h1>
-    <h2><%=@spell_check_error%></h2>
+    <h2>Результат проверки:</h2>
+    <ul>
+    <li><%=@spell_check_error%></li>
+    </ul>
 </div>
 <% end %>
