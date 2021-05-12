@@ -16,19 +16,7 @@ class CheckText
 
     def parse_response(response)
       return 'Что-то пошло не так' if !response.code == 200
-
       body = JSON.parse(response.body)
-      if body.empty?
-        'Какой Вы молодец! Все написно верно.'
-      else
-        errors = []
-        maybe = []
-        body.each do |check_result|
-          errors << check_result['word']
-          maybe << check_result['s']
-        end
-        "Ошибки в слове #{errors}, возможно вы имели ввиду: #{maybe}"
-      end
     end
 
     def request(path, params)
